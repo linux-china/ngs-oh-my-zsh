@@ -1,6 +1,6 @@
-oh-my-zsh plugin for ZGS
+oh-my-zsh plugin for NGS
 ============================
-Too many commands for NGS cli. https://synadia.com/ngs/  
+Too many sub command/action parameters for NGS cli. https://synadia.com/ngs/  
 
 ### How to use it
 
