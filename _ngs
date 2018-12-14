@@ -1,0 +1,92 @@
+#compdef aa
+
+local -a firstcommands accountsubcommands addsubcommands deletesubcommands demosubcommands a
+
+_regex_words account_sub_commands 'account sub commands' 'cancel:Cancel your Synadia messaging account'\
+ 'ccard:Update the credit card on your Synadia account'\
+ 'edit:Edit your account preferences (email and plan)'\
+ 'plans:Lists available messaging plans'\
+ 'status:Reports the status of the account'\
+ 'sync:Sync your account JWT with the operator approved version'\
+ 'verify:Verify the email attached to your account'
+account_sub_commands=("$reply[@]")
+
+_regex_words add_sub_commands 'add sub commands' 'account:Add an account'\
+ 'export:Add an export'\
+ 'import:Add an import'\
+ 'user:Add an user to the account'
+add_sub_commands=("$reply[@]")
+
+_regex_words delete_sub_commands1 'delete sub commands' 'export:Delete an export'\
+ 'import:Delete an import'
+delete_sub_commands=("$reply[@]")
+
+_regex_words demo_sub_commands 'demo sub commands' 'active:Send listen to NGS active connection updates'\
+ 'echo:Send a round trip message to the global network'
+demo_sub_commands=("$reply[@]")
+
+_regex_words describe_sub_commands 'describe sub commands' 'account:Describes an account'\
+ 'jwt:Describe a jwt file'\
+ 'operator:Describe the Synadia operator settings'\
+ 'user:Describes an user'
+describe_sub_commands=("$reply[@]")
+
+_regex_words edit_sub_commands 'edit sub commands' 'account:Edit an account'\
+ 'user:Edit an user'
+edit_sub_commands=("$reply[@]")
+
+_regex_words env_sub_commands1 'env sub commands' '--account:set account name'\
+ '--cluster:set cluster name'\
+ '--operator:set operator name'\
+ '--store:set store directory'
+env_sub_commands=("$reply[@]")
+
+_regex_words generate_sub_commands 'generate sub commands' 'activation:Generate an export activation jwt token'\
+ 'creds:Generate a credentials file for an user'
+generate_sub_commands=("$reply[@]")
+
+_regex_words list_sub_commands 'list sub commands' 'accounts:List accounts'\
+ 'users:List users'
+list_sub_commands=("$reply[@]")
+
+_regex_words revoke_sub_commands 'revoke sub commands' 'account:Revoke an account, this is a rare action, sometimes used to revoke your nkeys'\
+ 'activation:Revoke a generated activation token, disabling its use and trust'\
+ 'user:Revoke a user token, disabling its use and trust'
+revoke_sub_commands=("$reply[@]")
+
+_regex_words signup_sub_commands 'signup sub commands' '--free:sign up for a free account, limited but no credit card required'\
+ '--name:set the name of your account, otherwise a generated name is used'
+signup_sub_commands=("$reply[@]")
+
+_regex_words toolsubcommands1 'env sub commands' 'pub:Publish to a subject on your NGS account'\
+ 'qsub:Subscribe to a subject, as part of a queue, on your NGS account'\
+ 'reply:Listen on a subject on your NGS account, and reply to messages'\
+ 'req:Send a request to a subject on your NGS account'\
+ 'sub:Subscribe to a subject on your NGS account'
+toolsubcommands=("$reply[@]")
+
+
+_regex_words uploadsubcommands 'upload sub commands' 'account:Upload your account JWT to Synadiaglobal service'\
+ 'activation:Upload an activation token'
+uploadsubcommands=("$reply[@]")
+
+
+_regex_words word4 'All commands' 'account:Manage your account or credit card, list plans, check status:$account_sub_commands'\
+ 'add:Add assets such as accounts, imports, users:$add_sub_commands'\
+ 'delete:Delete imports and exports:$delete_sub_commands'\
+ 'demo:Send a message on the network:$demo_sub_commands'\
+ 'describe:Describe assets such as accounts, users, and jwt files:$describe_sub_commands'\
+ 'edit:Edit account and user properties:$edit_sub_commands'\
+ 'env:Prints and manage the ngs environment:$env_sub_commands'\
+ 'generate:Generate a user creds file for connecting with NATS, or an activation token:$generate_sub_commands'\
+ 'help:Help about any command'\
+ 'list:List accounts and users:$list_sub_commands'\
+ 'revoke:Revoke account, user or activation tokens:$revoke_sub_commands'\
+ 'signup:Signup initializes an account to use Syandia global service:$signup_sub_commands'\
+ 'tool:Use one of the NATS tools:$toolsubcommands'\
+ 'update:Update this tool to latest version'\
+ 'upload:Upload an account or activation tokens:$uploadsubcommands'
+firstcommands=("$reply[@]")
+
+_regex_arguments _cmd /$'[^\0]##\0'/ "${firstcommands[@]}"
+_cmd "$@"
