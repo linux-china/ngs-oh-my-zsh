@@ -22,7 +22,9 @@ _regex_words delete_sub_commands1 'delete sub commands' 'export:Delete an export
 delete_sub_commands=("$reply[@]")
 
 _regex_words demo_sub_commands 'demo sub commands' 'active:Send listen to NGS active connection updates'\
- 'echo:Send a round trip message to the global network'
+ 'echo:Send a round trip message to the global network'\
+ 'usage:Download your account usage information for the last 30 days'\
+ 'active:Send listen to NGS active connection updates'
 demo_sub_commands=("$reply[@]")
 
 _regex_words describe_sub_commands 'describe sub commands' 'account:Describes an account'\
@@ -62,7 +64,8 @@ _regex_words toolsubcommands1 'env sub commands' 'pub:Publish to a subject on yo
  'qsub:Subscribe to a subject, as part of a queue, on your NGS account'\
  'reply:Listen on a subject on your NGS account, and reply to messages'\
  'req:Send a request to a subject on your NGS account'\
- 'sub:Subscribe to a subject on your NGS account'
+ 'sub:Subscribe to a subject on your NGS account'\
+ 'rtt:Calculate round trip time to the cluster'
 toolsubcommands=("$reply[@]")
 
 
